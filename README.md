@@ -58,7 +58,7 @@ General notes
 
 * The flag `-r` is passed to `jq`.
 
-* The domain used in the examples (https://jsonaas.herokuapp.com/) is Heroku free dyno, do not rely on it. I have compiled `jq` 1.5 without `env` support, do not try to exploit it.
+* The domain used in the examples (https://jsonaas.herokuapp.com/) is a Heroku free dyno, do not rely on it. I have compiled `jq` 1.5 without `env` support, do not try to exploit it.
 
 Similar projects
 ----------------
