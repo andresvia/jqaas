@@ -28,6 +28,12 @@ Get the name and date of the last commiter to the `jq` project.
     $ curl -gs 'localhost:3000/?get=https://api.github.com/repos/stedolan/jq/commits%3Fper_page=1&filter=.|.[]|("\(.commit.author.date)%20\(.commit.author.name)")'
     2015-12-15T05:43:22Z Nicolas Williams
 
+Browser example:
+
+* Most recent `jq` commit date and author &#9755; https://jsonaas.herokuapp.com/?get=https://api.github.com/repos/stedolan/jq/commits%3Fper_page=1&filter=[.[].commit.author.date,%20.[].commit.author.name]
+   
+  ![Browser screenshot](browser-screenshot.png)
+
 **Note 1**: The `curl` `-g` parameter was passed because curl interprets square brackets as special sequences, see `curl(1)` for more information about this feature.
 
 **Note 2**: The GitHub API `?per_page` parameter have to be URL encoded, `curl` URL encodes automatically the rest of the special characters, other clients may have trouble with `:, /, |, [, /` characters. URL encode them before setting the `get' parameter to avoid trouble.
@@ -51,6 +57,8 @@ General notes
 * `jq` exit code is returned in the `X-Return-Code` especial header, any non `0` exit code will render a `400 Bad Request` response and the body of the response will contain the standard error of `jq` execution.
 
 * The flag `-r` is passed to `jq`.
+
+* The domain used in the examples (https://jsonaas.herokuapp.com/) is Heroku free dyno, do not rely on it. I have compiled `jq` 1.5 without `env` support, do not try to exploit it.
 
 Similar projects
 ----------------
