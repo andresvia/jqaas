@@ -21,6 +21,9 @@ function jqresp(input, req, res, next) {
       if (jqdata == "") jqdata = '""';
       res.set('X-Return-Code', code);
       if (code == 0) {
+        if (IsJsonString(jqdata)) {
+          res.set('Content-Type', 'application/json')
+        }
         res.status(200).send(jqdata);
       } else {
         res.status(400).send(jqerr);
@@ -29,6 +32,15 @@ function jqresp(input, req, res, next) {
   } else {
     res.status(400).send("Set 'filter' parameter\n");
   }
+}
+
+function IsJsonString(str) {
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
 }
 
 /* GET home page. */

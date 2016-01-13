@@ -5,14 +5,14 @@ This Node.js web app wraps [jq](https://github.com/stedolan/jq) as a `child_proc
 
 Whenever I have the time or knowledge I will work this out using `libjq` but since there is no binding for any "easy" language probably that's not going to happen soon.
 
-This is clearly not the most efficient way to invoke jq capabilities I'm just trying to solve a problem, integrating disparate API's on Rundeck where only HTTP GET requests can be made on some cases to integrate different resources.
+This is clearly not the most efficient way to invoke `jq` capabilities I'm just trying to solve a problem, integrating disparate API's on Rundeck where only HTTP GET requests can be made on some cases to integrate different resources.
 
 Example use case: combine the feature of Rundeck where allowed values can come from a "Remote URL" with output from PuppetDB using `jqaas` to transform the PuppetDB output into the format that Rundeck "wants".
 
-Security warning: This service can expose the environment where the application is running. `jq` program can access the environment through the env object. Don't save sensitive information in environment variables.
-
 * Rundeck [option model provider documentation](http://rundeck.org/docs/manual/jobs.html?#option-model-provider)
 * [PuppetDB documentation](http://docs.puppetlabs.com/puppetdb/latest/api/index.html)
+
+Security warning: This service can expose the environment where the application is running. `jq` program can access the environment through the `env` object. Don't save sensitive information in environment variables.
 
 API
 ---
