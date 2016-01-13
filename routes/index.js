@@ -7,6 +7,10 @@ var request = require('request');
 function jqresp(input, req, res, next) {
   if (req.query.filter) {
     jq = spawn('jq', ['-r', req.query.filter])
+    jq.on('error', function(error) {
+      // should send a '500 Internal Server Error' here
+      debug(error);
+    });
     jq.stdin.write(new Buffer(input));
     jq.stdin.end();
     jqdata = "";

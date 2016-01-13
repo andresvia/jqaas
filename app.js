@@ -7,7 +7,7 @@ var routes = require('./routes/index');
 var app = express();
 
 function forceContentTypeMiddleware(req, res, next) {
-  req.headers['Content-Type'] = 'application/json';
+  req.headers['content-type'] = 'application/json';
   next();
 }
 app.use(forceContentTypeMiddleware);
