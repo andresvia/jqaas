@@ -46,7 +46,7 @@ function IsJsonString(str) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.query.get) {
-    request({url: req.query.get, headers: {'User-Agent': 'request'}}, function(error, response, body) {
+    request({url: req.query.get, headers: {'User-Agent': req.get('User-Agent')}}, function(error, response, body) {
       if (error) {
 	res.status(400).send(error.toString() + "\n");
       } else {
