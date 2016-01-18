@@ -38,23 +38,8 @@ Browser example:
 
 **Note 2**: The GitHub API `?per_page` parameter have to be URL encoded, `curl` URL encodes automatically the rest of the special characters, other clients may have trouble with `:, /, |, [, /` characters. URL encode them before setting the `get' parameter to avoid trouble.
 
-#### POST
-
-`curl` example:
-
-Get the version of Express that the project is using.
-
-    $ curl -d@- -gs 'localhost:3000/?filter=.dependencies.express' < package.json 
-    ~4.13.1
-
-**Note 1**: The `Content-Type` of the request is always understood as `application/json` any other content will render a `400 Bad Request` directly from Express.
-
-**Note 2**: With this technique JSON filtering can also be used in pipelines, example: `some-program | curl -d@- -s jqaas-location/?filter=some-filter`
-
 General notes
 -------------
-
-* `jq` exit code is returned in the `X-Return-Code` especial header, any non `0` exit code will render a `400 Bad Request` response and the body of the response will contain the standard error of `jq` execution.
 
 * The flag `-r` is passed to `jq`.
 

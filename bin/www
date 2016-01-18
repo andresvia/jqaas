@@ -17,15 +17,15 @@ var fs = require('fs');
 if (process.env.JQ_DOWNLOAD_URL) {
   debug("Getting the jq executable");
   var jq = fs.createWriteStream('bin/jq');
-  jq.on('error', function(error) {
+  jq.on('error', error => {
     debug(error)
   });
-  request(process.env.JQ_DOWNLOAD_URL, function(error, response, body) {
+  request(process.env.JQ_DOWNLOAD_URL, (error, response, body) => {
     if (error) debug(error);
   }).pipe(jq);
-  jq.on('finish', function() {
+  jq.on('finish', () => {
     debug("Done downloading jq");
-    fs.chmod('bin/jq', 0755, function(error) {
+    fs.chmod('bin/jq', 0755, error => {
       if (error) debug(error);
     });
   });
