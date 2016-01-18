@@ -28,8 +28,8 @@ router.get('/', (req, res) => {
   } else {
     res.status(400).send(`
       <form method='get'>
-      <input name='get' size='50' placeholder='JSON URL http://...'> |
-      <input name='filter' size='50' placeholder='jq filter .'>
+      <input name='get' size='50' placeholder='JSON https://api.github.com/users/octocat'> |
+      <input name='filter' size='50' placeholder='filter .avatar_url'>
       <input type='submit' value='go'>
       </form>
     `);
