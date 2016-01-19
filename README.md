@@ -49,6 +49,7 @@ Similar projects
 ----------------
 
 * David Dollar [jqaas](https://github.com/ddollar/jqaas)
+* Jingwen Owen Ou [jqplay](https://github.com/jingweno/jqplay)
 
 Thanks
 ------
